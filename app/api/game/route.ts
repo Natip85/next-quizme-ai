@@ -106,6 +106,8 @@ export async function POST(req: Request, res: Response) {
         }
       );
     } else {
+      console.log("ERROR>>>", error);
+
       return NextResponse.json(
         { error: "An unexpected error occurred!" },
         {
