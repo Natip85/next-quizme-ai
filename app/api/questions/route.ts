@@ -5,7 +5,7 @@ import { ZodError } from "zod";
 import { currentUser } from "@/lib/auth";
 
 // export const runtime = "nodejs";
-export const maxDuration = 500;
+export const maxDuration = 59;
 
 export const getQuestionsSchema = z.object({
   topic: z.string(),
