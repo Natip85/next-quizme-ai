@@ -7,8 +7,9 @@ type Props = { finished: boolean };
 const loadingTexts = [
   "Generating questions...",
   "Unleashing the power of curiosity...",
-  "Diving deep into the ocean of questions..",
+  "Diving deep into the ocean of questions...",
   "Harnessing the collective knowledge of the cosmos...",
+  "Get ready for this brain twister...",
   "Igniting the flame of wonder and exploration...",
 ];
 export default function LoadingQuestions({ finished }: Props) {
@@ -19,7 +20,7 @@ export default function LoadingQuestions({ finished }: Props) {
     const interval = setInterval(() => {
       let randomIndex = Math.floor(Math.random() * loadingTexts.length);
       setLoadingText(loadingTexts[randomIndex]);
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 

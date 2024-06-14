@@ -8,7 +8,9 @@ import { LucideLayoutDashboard } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
-
+export const metadata = {
+  title: "Statistics | quizMe",
+};
 type Props = {
   params: {
     gameId: string;

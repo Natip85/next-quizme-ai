@@ -10,12 +10,13 @@ import Link from "next/link";
 import { currentUser } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import db from "@/db/db";
+import HistoryComponent from "../HistoryComponent";
 
 type Props = {};
 
 export default async function RecentActivityCard({}: Props) {
   const user = await currentUser();
-  if (!user) {
+  if (!user || !user.id) {
     return redirect("/");
   }
   const games_count = await db.game.count({
@@ -34,8 +35,7 @@ export default async function RecentActivityCard({}: Props) {
         </CardDescription>
       </CardHeader>
       <CardContent className="max-h-[580px] overflow-scroll">
-        {/* <HistoryComponent limit={10} userId={session.user.id} /> */}
-        history compoinent
+        <HistoryComponent limit={10} userId={user.id} />
       </CardContent>
     </Card>
   );

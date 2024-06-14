@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import React from "react";
 
 export const metadat = {
-  title: "Quiz | qiuzMe",
+  title: "Quiz | quizMe",
   description: "Quiz yourself on anything!",
 };
 interface QuizProps {

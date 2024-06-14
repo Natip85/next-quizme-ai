@@ -8,8 +8,9 @@ type WordCloudProps = {
   formattedTopics: { text: string; value: number }[];
 };
 
-const fontSizeMapper = (word: { value: number }) =>
-  Math.log2(word.value) * 5 + 16;
+const fontSizeMapper = (word: { value: number }) => {
+  return Math.log2(word.value) * 5 + 16;
+};
 
 export default function WordCloud({ formattedTopics }: WordCloudProps) {
   const theme = useTheme();
@@ -23,7 +24,7 @@ export default function WordCloud({ formattedTopics }: WordCloudProps) {
   }, []);
 
   if (!isClient) {
-    return; // Or return a loading spinner or placeholder if preferred
+    return;
   }
 
   return (
