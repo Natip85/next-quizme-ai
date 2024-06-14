@@ -11,6 +11,7 @@ import {
 import { Github, HelpCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { Separator } from "./ui/separator";
 
 type Props = {};
 
@@ -45,9 +46,9 @@ const DetailsDialog = (props: Props) => {
               platform is revolutionizing the quiz and trivia experience by
               harnessing the immense potential of artificial intelligence.
             </span>
-            {/* <hr /> */}
+            {/* <hr className="my-5" /> */}
             <span className="my-2 font-semibold">
-              <span className="text-base font-semibold">Built with</span>
+              <span className="text-base font-semibold">Built with:</span>
               <span className="grid justify-around grid-cols-4 mt-2 gap-y-3">
                 <span className="flex items-center gap-2">
                   <Image alt="neon" src="/neon.png" width={35} height={35} />
