@@ -4,6 +4,7 @@ import axios from "axios";
 import { quizCreationSchema } from "@/validations";
 import db from "@/db/db";
 import { currentUser } from "@/lib/auth";
+export const maxDuration = 500;
 
 export async function POST(req: Request, res: Response) {
   try {
