@@ -6,12 +6,8 @@ import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
 import QueryProvider from "@/components/query-client-provider";
+import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
@@ -25,7 +21,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
-  const queryClient = new QueryClient();
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -45,6 +40,7 @@ export default async function RootLayout({
             <SessionProvider session={session}>
               <Navbar />
               {children}
+              <Toaster />
             </SessionProvider>
           </ThemeProvider>
         </QueryProvider>

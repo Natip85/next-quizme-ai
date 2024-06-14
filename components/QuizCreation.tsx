@@ -39,6 +39,8 @@ export default function QuizCreation({ topic: topicParam }: QuizCreationProps) {
   const { mutate: getQuestions, isPending } = useMutation({
     mutationFn: async ({ amount, topic, type }: ValidInputs) => {
       const response = await axios.post("/api/game", { amount, topic, type });
+      console.log("responseeee", response);
+
       return response.data;
     },
   });
@@ -52,6 +54,8 @@ export default function QuizCreation({ topic: topicParam }: QuizCreationProps) {
   });
 
   const onSubmit = async (data: ValidInputs) => {
+    console.log("DATA>>>", data);
+
     // setShowLoader(true);
     getQuestions(data, {
       onError: (error) => {
@@ -78,6 +82,7 @@ export default function QuizCreation({ topic: topicParam }: QuizCreationProps) {
       },
     });
   };
+
   form.watch();
 
   return (
@@ -134,7 +139,7 @@ export default function QuizCreation({ topic: topicParam }: QuizCreationProps) {
                 )}
               />
 
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <Button
                   variant={
                     form.getValues("type") === "mcq" ? "default" : "secondary"

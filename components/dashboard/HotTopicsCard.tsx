@@ -9,9 +9,7 @@ import {
 import db from "@/db/db";
 import WordCloud from "../WordCloud";
 
-type Props = {};
-
-export default async function HotTopicsCard({}: Props) {
+export default async function HotTopicsCard() {
   const topics = await db.topic_count.findMany({});
   const formattedTopics = topics.map((topic) => {
     return {

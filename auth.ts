@@ -5,13 +5,13 @@ import authConfig from "./authConfig";
 import db from "./db/db";
 import { getUserById } from "./data/user";
 
-// declare module "@auth/core" {
-//   interface Session {
-//     user: {
-//       role: string;
-//     } & DefaultSession["user"];
-//   }
-// }
+declare module "@auth/core" {
+  interface Session {
+    user: {
+      role: string;
+    } & DefaultSession["user"];
+  }
+}
 export const {
   handlers: { GET, POST },
   auth,
